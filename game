@@ -1,0 +1,38 @@
+# creating a basic guessing game in python
+import random
+
+print("welcome to the game of guesses")
+n_guesses = []
+initial = False
+
+c_guess = random.randint(1, 100)
+print(c_guess)
+guess = int(input("I am thinking of a number between 1 to 100:"))
+if guess in range(1, 101):
+    n_guesses.append(guess)
+    if guess >= abs(c_guess-10) and guess < c_guess:
+        print("warm")
+        print(len(n_guesses))
+        initial = True
+    elif guess > c_guess+10:
+        print("cold")
+        print(len(n_guesses))
+        initial = True
+    elif guess == c_guess:
+        print("hurrah you have won")
+        print("you guessed it in {} trails".format(len(n_guesses)))
+        exit()
+while initial:
+    if len(n_guesses) >= 1:
+        guess2 = int(input("enter another input:"))
+        if guess2 > guess and guess2 < c_guess:
+            n_guesses.append(guess2)
+            print("warmer")
+        if guess2 > c_guess:
+            n_guesses.append(guess2)
+            print("colder")
+        if guess2 == c_guess:
+            n_guesses.append(guess2)
+            print("hurrah you won")
+            print("you guessed it in {} trails".format(len(n_guesses)))
+            exit()
