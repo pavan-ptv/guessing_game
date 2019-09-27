@@ -6,7 +6,7 @@ n_guesses = []
 initial = False
 
 c_guess = random.randint(1, 100)
-print(c_guess)
+
 guess = int(input("I am thinking of a number between 1 to 100:"))
 if guess in range(1, 101):
     n_guesses.append(guess)
